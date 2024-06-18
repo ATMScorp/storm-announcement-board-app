@@ -53,3 +53,5 @@ spring:
         hibernate:
           format_sql: false
 ```
+
+> ⚠️ **Wskazówka:** Zrzuty ekranu aplikacji znajdują się w folderze `screenshots`.
