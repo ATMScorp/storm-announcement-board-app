@@ -1,0 +1,26 @@
+<div class="dashboard-container">
+  <h2>My Announcements</h2>
+  <div class="announcements-list" *ngIf="announcements.length > 0; else noAnnouncements">
+    <div *ngFor="let announcement of announcements" class="announcement-card" (click)="goToDetails(announcement.id)">
+      <div class="announcement-photo">
+        <img *ngIf="announcement.photo" [src]="announcement.photo" alt="Photo" />
+        <img *ngIf="!announcement.photo" src="assets/no_image.jpg" alt="No Image Available" />
+      </div>
+      <div class="announcement-details">
+        <h3 class="title">{{ announcement.title }}</h3>
+        <p class="description">{{ announcement.description }}</p>
+        <p class="price">{{ announcement.price | currency }}</p>
+        <p class="location"><strong>Location:</strong> {{ announcement.location }}</p>
+        <p class="contact-person"><strong>Contact Person:</strong> {{ announcement.contactPerson }}</p>
+        <p class="phone-number"><strong>Phone Number:</strong> {{ announcement.phoneNumber }}</p>
+        <p class="item-condition"><strong>Condition:</strong> {{ announcement.itemCondition }}</p>
+        <p class="color"><strong>Color:</strong> {{ announcement.color }}</p>
+      </div>
+      <button class="delete-btn" (click)="deleteAnnouncement($event, announcement.id)">Delete</button>
+      <button class="update-btn" (click)="$event.stopPropagation()" [routerLink]="['/user/announcement/edit', announcement.id]">Update</button>
+    </div>
+  </div>
+  <ng-template #noAnnouncements>
+    <p>No announcements available.</p>
+  </ng-template>
+</div>

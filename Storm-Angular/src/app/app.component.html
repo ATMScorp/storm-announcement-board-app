@@ -1,0 +1,46 @@
+<div *ngIf="!isUserLoggedIn">
+  <mat-toolbar class="navbar custom-toolbar">
+      <span class="navbar-brand" href="/announcements">
+          Storm
+          <img src="assets/logo.png" class="navbar-icon">
+      </span>
+      <span class="spacer"></span>
+      <div class="buttons">
+          <button mat-button routerLink="/announcements" routerLinkActive="active">Announcements</button>
+          <button mat-button routerLink="/register" routerLinkActive="active">Registration</button>
+          <button mat-button routerLink="/login" routerLinkActive="active">Login</button>
+      </div>
+  </mat-toolbar>
+</div>
+<div *ngIf="isUserLoggedIn">
+  <mat-toolbar class="navbar custom-toolbar">
+      <span class="navbar-brand">
+          Storm
+          <img src="assets/logo.png" class="navbar-icon">
+      </span>
+      <span class="spacer"></span>
+      <div class="buttons">
+          <button mat-button routerLink="/user/create-item" routerLinkActive="active" class="create-item-button">+
+              Create item</button>
+          <button mat-button routerLink="/user/announcements" routerLinkActive="active">Announcements</button>
+          <button mat-button routerLink="/user/favorites:userId" routerLinkActive="active">
+              <mat-icon>
+                  favorites
+              </mat-icon>
+          </button>
+          <div class="dropdown">
+              <button mat-button class="account-button" (click)="toggleDropdown()">
+                  <mat-icon>
+                      person
+                  </mat-icon>
+              </button>
+              <div class="dropdown-content" *ngIf="dropdownOpen">
+                  <button mat-button routerLink="/user/announcements:userId" routerLinkActive="active"
+                      class="dropdown-content-button">My Announcements</button>
+                  <button mat-button (click)="logout()" class="dropdown-content-button">Exit</button>
+              </div>
+          </div>
+      </div>
+  </mat-toolbar>
+</div>
+<router-outlet></router-outlet>

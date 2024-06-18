@@ -1,0 +1,41 @@
+<div class="announcement-details-container">
+    <div class="announcement-header">
+      <h2>{{ announcement?.title }}</h2>
+      <p class="price">{{ announcement?.price | currency }}</p>
+    </div>
+    
+    <div class="announcement-gallery">
+      <img [src]="announcement?.photo" alt="Announcement Photo" *ngIf="announcement?.photo; else noImage" class="main-photo">
+      <ng-template #noImage>
+        <div class="no-image">No Image Available</div>
+      </ng-template>
+    </div>
+  
+    <div class="announcement-info">
+      <h3>Details</h3>
+      <div class="info-row">
+        <span class="label">Description:</span>
+        <span class="value">{{ announcement?.description }}</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Location:</span>
+        <span class="value">{{ announcement?.location }}</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Contact Person:</span>
+        <span class="value">{{ announcement?.contactPerson }}</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Phone Number:</span>
+        <span class="value">{{ announcement?.phoneNumber }}</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Item Condition:</span>
+        <span class="value">{{ announcement?.itemCondition }}</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Color:</span>
+        <span class="value">{{ announcement?.color }}</span>
+      </div>
+    </div>
+  </div>

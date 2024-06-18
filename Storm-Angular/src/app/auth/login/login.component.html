@@ -1,0 +1,23 @@
+<div class="login-container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <div class="password-input">
+        <input [type]="hidePassword ? 'password' : 'text'" id="password" formControlName="password" required>
+        <button type="button" class="password-toggle" (click)="togglePasswordVisibility()">
+          <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </div>
+    </div>
+    <button type="submit" [disabled]="!loginForm.valid" class="button">Login</button>
+    <div class="register-prompt">
+      Not registered? 
+      <button type="button" class="sign-up-link" (click)="goToRegister()">Sign Up</button>
+    </div>
+  </form>
+</div>

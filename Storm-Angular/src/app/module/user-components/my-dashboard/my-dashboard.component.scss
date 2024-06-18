@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #d9c9df;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.dashboard-container {
+  width: 100%;
+  max-width: 1440px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+
+  h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .announcements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .announcement-card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .announcement-photo {
+      width: 200px;
+      height: 200px;
+      flex: 0 0 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px 0 0 10px;
+      }
+    }
+
+    .announcement-details {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .title {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: #ff5a00;
+      }
+
+      .description,
+      .price,
+      .location,
+      .contact-person,
+      .phone-number,
+      .item-condition,
+      .color {
+        margin: 5px 0;
+        color: #555;
+      }
+    }
+
+    .delete-btn,
+    .update-btn {
+      position: absolute;
+      bottom: 10px;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      color: #fff;
+      transition: background-color 0.3s;
+
+      &.delete-btn {
+        right: 10px;
+        background-color: #ff5a00;
+
+        &:hover {
+          background-color: #ff7b4e;
+        }
+      }
+
+      &.update-btn {
+        right: 80px;
+        background-color: #4d17c0;
+
+        &:hover {
+          background-color: rgb(123, 67, 244);
+        }
+      }
+    }
+  }
+}

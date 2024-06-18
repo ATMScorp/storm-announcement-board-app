@@ -1,0 +1,57 @@
+<div class="edit-item-container">
+    <h2>Edit Announcement</h2>
+    <form [formGroup]="announcementForm" (ngSubmit)="updateAnnouncement()">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input id="title" formControlName="title" type="text" class="form-control" required />
+            <small *ngIf="announcementForm.get('title')?.errors?.['required']" class="text-danger">Title is required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" formControlName="description" class="form-control" required></textarea>
+            <small *ngIf="announcementForm.get('description')?.errors?.['required']" class="text-danger">Description is required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input id="price" formControlName="price" type="text" class="form-control" required />
+            <small *ngIf="announcementForm.get('price')?.errors?.['required']" class="text-danger">Price is required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input id="location" formControlName="location" type="text" class="form-control" required />
+            <small *ngIf="announcementForm.get('location')?.errors?.['required']" class="text-danger">Location is required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="contactPerson">Contact Person</label>
+            <input id="contactPerson" formControlName="contactPerson" type="text" class="form-control" required />
+            <small *ngIf="announcementForm.get('contactPerson')?.errors?.['required']" class="text-danger">Contact Person is required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input id="phoneNumber" formControlName="phoneNumber" type="text" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="itemCondition">Item Condition</label>
+            <input id="itemCondition" formControlName="itemCondition" type="text" class="form-control" required />
+            <small *ngIf="announcementForm.get('itemCondition')?.errors?.['required']" class="text-danger">Item Condition is required</small>
+        </div>
+
+        <div class="form-group">
+            <label for="color">Color</label>
+            <input id="color" formControlName="color" type="text" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="photo">Photo URL</label>
+            <input id="photo" formControlName="photo" type="text" class="form-control" />
+        </div>
+
+        <button type="submit" [disabled]="isSubmitting || announcementForm.invalid" class="submit-btn">Update Announcement</button>
+    </form>
+</div>

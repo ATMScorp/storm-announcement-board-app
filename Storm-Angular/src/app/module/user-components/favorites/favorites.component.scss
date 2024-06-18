@@ -1,0 +1,71 @@
+.favorites-container {
+    width: 100%;
+    margin: 20px auto;
+  
+    h2 {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+  
+    .favorites-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+  
+    .announcement-card {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+  
+      .announcement-photo {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+  
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+      }
+  
+      .announcement-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+  
+        .title {
+          font-size: 20px;
+          margin-bottom: 10px;
+          color: #ff5a00;
+        }
+  
+        .description,
+        .price,
+        .location,
+        .contact-person,
+        .phone-number,
+        .item-condition,
+        .color {
+          margin: 5px 0;
+          color: #555;
+        }
+      }
+    }
+  
+    .no-favorites-message {
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+  

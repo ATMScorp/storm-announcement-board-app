@@ -1,0 +1,76 @@
+<div class="create-item-container">
+  <h2>Create Announcement</h2>
+  <form [formGroup]="createForm" (ngSubmit)="createItem()">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="title">Title*</label>
+        <input id="title" formControlName="title" required>
+        <div *ngIf="createForm.get('title')?.invalid && (createForm.get('title')?.dirty || createForm.get('title')?.touched)">
+          <small class="error" *ngIf="createForm.get('title')?.hasError('required')">Title is required.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description">Description*</label>
+        <textarea id="description" formControlName="description" required></textarea>
+        <div *ngIf="createForm.get('description')?.invalid && (createForm.get('description')?.dirty || createForm.get('description')?.touched)">
+          <small class="error" *ngIf="createForm.get('description')?.hasError('required')">Description is required.</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="price">Price*</label>
+        <div class="input-with-currency">
+          <input id="price" type="number" formControlName="price" required>
+        </div>
+        <div *ngIf="createForm.get('price')?.invalid && (createForm.get('price')?.dirty || createForm.get('price')?.touched)">
+          <small class="error" *ngIf="createForm.get('price')?.hasError('required')">Price is required.</small>
+          <small class="error" *ngIf="createForm.get('price')?.hasError('min')">Price must be greater than or equal to 0.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="location">Location*</label>
+        <input id="location" formControlName="location" required>
+        <div *ngIf="createForm.get('location')?.invalid && (createForm.get('location')?.dirty || createForm.get('location')?.touched)">
+          <small class="error" *ngIf="createForm.get('location')?.hasError('required')">Location is required.</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="contactPerson">Contact Person*</label>
+        <input id="contactPerson" formControlName="contactPerson" required>
+        <div *ngIf="createForm.get('contactPerson')?.invalid && (createForm.get('contactPerson')?.dirty || createForm.get('contactPerson')?.touched)">
+          <small class="error" *ngIf="createForm.get('contactPerson')?.hasError('required')">Contact Person is required.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number*</label>
+        <input id="phoneNumber" formControlName="phoneNumber" required>
+        <div *ngIf="createForm.get('phoneNumber')?.invalid && (createForm.get('phoneNumber')?.dirty || createForm.get('phoneNumber')?.touched)">
+          <small class="error" *ngIf="createForm.get('phoneNumber')?.hasError('pattern')">Invalid phone number.</small>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="itemCondition">Item Condition*</label>
+        <input id="itemCondition" formControlName="itemCondition" required>
+        <div *ngIf="createForm.get('itemCondition')?.invalid && (createForm.get('itemCondition')?.dirty || createForm.get('itemCondition')?.touched)">
+          <small class="error" *ngIf="createForm.get('itemCondition')?.hasError('required')">Item Condition is required.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="color">Color</label>
+        <input id="color" formControlName="color">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="photo">Photo URL</label>
+        <input id="photo" formControlName="photo">
+      </div>
+    </div>
+    <button type="submit" [disabled]="createForm.invalid">Create</button>
+  </form>
+</div>
