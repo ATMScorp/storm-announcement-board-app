@@ -1,4 +1,4 @@
-## 📖 Application Overview
+## 📖 Application Overview (complete) ![Project Status](https://img.shields.io/badge/status-complete-green)
 
 **Storm** is a basic CRUD app for practicing full-stack development. 
 It allows users to create, browse, edit, delete, and favorite listings.
